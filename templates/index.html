@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Vigas</title>
+    <link
+      href="{{url_for('static',filename='/css/all.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='/css/style.css')}}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      src="{{url_for('static',filename='/js/plotly-3.0.1.min.js')}}"
+      charset="utf-8"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="app-title">Calculadora de Vigas</h1>
+      </header>
+
+      <div class="main-content">
+        <div class="form-column">
+          <form id="beam-form">
+            <div class="card">
+              <h2 class="section-title">Propriedades da Viga</h2>
+              <div class="form-group">
+                <label for="beam-span">Comprimento da Viga (m)</label>
+                <input
+                  type="number"
+                  id="beam-span"
+                  step="0.1"
+                  min="0"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="section-title">Apoios</div>
+              <div id="supports-container">
+                <!-- Support items will be added here -->
+              </div>
+              <button type="button" id="add-support" class="btn-secondary">
+                Adicionar Apoio
+              </button>
+            </div>
+
+            <div class="card">
+              <div class="section-title">Cargas Distribuídas</div>
+              <div id="distributed-loads-container">
+                <!-- Distributed load items will be added here -->
+              </div>
+              <button
+                type="button"
+                id="add-distributed-load"
+                class="btn-secondary"
+              >
+                Adicionar Carga Distribuída
+              </button>
+            </div>
+
+            <div class="card">
+              <div class="section-title">Cargas Pontuais</div>
+              <div id="point-loads-container">
+                <!-- Point load items will be added here -->
+              </div>
+              <button type="button" id="add-point-load" class="btn-secondary">
+                Adicionar Carga Pontual
+              </button>
+            </div>
+
+            <div class="actions">
+              <button type="reset" id="reset-btn" class="btn-secondary">
+                Limpar Formulário
+              </button>
+              <button type="submit" id="calculate-btn">Analisar</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="gallery-column">
+          <div class="card">
+            <h2 class="section-title">Diagramas</h2>
+            <div id="chart" class="chart"></div>
+            <div id="chart2" class="chart2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="{{url_for('static', filename='/js/main.js')}}"></script>
+  </body>
+</html>
