@@ -563,6 +563,7 @@ async function submitForm(e) {
     graph1.layout.title.text = "Condições Externas da Viga";
     graph1.layout.xaxis2.title.text = "Comprimento da Viga (m)";
 
+    graph2.layout.yaxis3.autorange = "reversed";
 
     graph2.layout.annotations.forEach((a) => {
       if (a.text === "Normal Force Diagram") {
