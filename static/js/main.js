@@ -115,7 +115,7 @@ function renderSupport(index, support) {
         id: `support-coord-${index}`,
         value: support.coord,
         min: 0,
-        step: "0.1",
+        step: "any",
       },
       {
         input: (e) => updateSupport(index, "coord", parseFloat(e.target.value)),
@@ -221,7 +221,7 @@ function renderDistributedLoad(index, load) {
         type: "number",
         id: `dist-load-expr-${index}`,
         value: load.expr,
-        step: "0.1",
+        step: "any",
       },
       {
         input: (e) =>
@@ -251,7 +251,7 @@ function renderDistributedLoad(index, load) {
         id: `dist-load-start-${index}`,
         value: load.span[0],
         min: 0,
-        step: "0.1",
+        step: "any",
       },
       {
         input: (e) =>
@@ -276,7 +276,7 @@ function renderDistributedLoad(index, load) {
         id: `dist-load-end-${index}`,
         value: load.span[1],
         min: 0,
-        step: "0.1",
+        step: "any",
       },
       {
         input: (e) =>
@@ -340,7 +340,7 @@ function renderPointLoad(index, load) {
         type: "number",
         id: `point-load-force-${index}`,
         value: load.force,
-        step: "0.1",
+        step: "any",
       },
       {
         input: (e) =>
@@ -370,7 +370,7 @@ function renderPointLoad(index, load) {
         id: `point-load-coord-${index}`,
         value: load.coord,
         min: 0,
-        step: "0.1",
+        step: "any",
       },
       {
         input: (e) =>
@@ -562,6 +562,8 @@ async function submitForm(e) {
     });
     graph1.layout.title.text = "Condições Externas da Viga";
     graph1.layout.xaxis2.title.text = "Comprimento da Viga (m)";
+
+
     graph2.layout.annotations.forEach((a) => {
       if (a.text === "Normal Force Diagram") {
         a.text = "Diagrama de Força Normal";
