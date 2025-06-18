@@ -25,6 +25,6 @@ if __name__ == "__main__":
     stream = StringIO()
     with redirect_stdout(stream):
         window = webview.create_window(
-            "Calculadora de Vigas", server, width=1280, height=800
+            "Calculadora de Esforços de Viga", server, width=1280, height=800
         )
         webview.start()
